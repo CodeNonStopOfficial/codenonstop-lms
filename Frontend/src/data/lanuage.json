@@ -1,0 +1,54 @@
+{
+  "data": [
+    { "id": 1, "language": "HTML", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { "id": 2, "language": "CSS", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { "id": 3, "language": "JavaScript", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { "id": 4, "language": "TypeScript", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { "id": 5, "language": "React", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { "id": 6, "language": "Next.js", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { "id": 7, "language": "Angular", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+    { "id": 8, "language": "Vue.js", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+
+    { "id": 9, "language": "Node.js", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { "id": 10, "language": "Express.js", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+    { "id": 11, "language": "Java", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { "id": 12, "language": "Spring Boot", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+    { "id": 13, "language": "Python", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { "id": 14, "language": "Django", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+    { "id": 15, "language": "Flask", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+    { "id": 16, "language": "PHP", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+    { "id": 17, "language": "Laravel", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+    { "id": 18, "language": "C", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { "id": 19, "language": "C++", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+    { "id": 20, "language": "C#", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+    { "id": 21, "language": ".NET", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" },
+
+    { "id": 22, "language": "MongoDB", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { "id": 23, "language": "MySQL", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { "id": 24, "language": "PostgreSQL", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { "id": 25, "language": "SQLite", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
+    { "id": 26, "language": "Redis", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+
+    { "id": 27, "language": "Git", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { "id": 28, "language": "GitHub", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { "id": 29, "language": "Docker", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { "id": 30, "language": "Kubernetes", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+
+    { "id": 31, "language": "AWS", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+    { "id": 32, "language": "Azure", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+    { "id": 33, "language": "Google Cloud", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+
+    { "id": 34, "language": "Kotlin", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
+    { "id": 35, "language": "Swift", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" },
+    { "id": 36, "language": "Flutter", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+    { "id": 37, "language": "Dart", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
+    { "id": 38, "language": "React Native", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+
+    { "id": 39, "language": "Go", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
+    { "id": 40, "language": "Rust", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" },
+    { "id": 41, "language": "Ruby", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" },
+    { "id": 42, "language": "Perl", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg" },
+    { "id": 43, "language": "Scala", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" },
+    { "id": 44, "language": "R", "languageIcon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" }
+  ]
+}

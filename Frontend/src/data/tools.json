@@ -1,0 +1,44 @@
+{
+  "data": [
+    { "id": 1, "tool": "Visual Studio Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { "id": 2, "tool": "IntelliJ IDEA", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" },
+    { "id": 3, "tool": "Eclipse", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" },
+    { "id": 4, "tool": "Android Studio", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" },
+
+    { "id": 5, "tool": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { "id": 6, "tool": "GitHub", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { "id": 7, "tool": "GitLab", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+    { "id": 8, "tool": "Bitbucket", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
+
+    { "id": 9, "tool": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { "id": 10, "tool": "Kubernetes", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+    { "id": 11, "tool": "Jenkins", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+    { "id": 12, "tool": "Terraform", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
+
+    { "id": 13, "tool": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { "id": 14, "tool": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { "id": 15, "tool": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { "id": 16, "tool": "Redis", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+    { "id": 17, "tool": "SQLite", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
+    { "id": 18, "tool": "Firebase", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+
+    { "id": 19, "tool": "AWS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+    { "id": 20, "tool": "Microsoft Azure", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+    { "id": 21, "tool": "Google Cloud", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+
+    { "id": 22, "tool": "Postman", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+    { "id": 23, "tool": "Swagger", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" },
+    { "id": 24, "tool": "Jira", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+
+    { "id": 25, "tool": "Linux", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { "id": 26, "tool": "Nginx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+    { "id": 27, "tool": "Apache", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+
+    { "id": 28, "tool": "Figma", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+    { "id": 29, "tool": "Canva", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
+
+    { "id": 30, "tool": "Jest", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+    { "id": 31, "tool": "Cypress", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg" },
+    { "id": 32, "tool": "Selenium", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" }
+  ]
+}
