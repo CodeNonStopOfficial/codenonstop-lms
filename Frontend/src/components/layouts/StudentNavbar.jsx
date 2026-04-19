@@ -21,7 +21,7 @@ import { User } from "lucide-react";
 const StudentNavbar = () => {
   const navigate = useNavigate();
   const logoImage = false;
-  const user = true;
+  const user = false;
   const [isOpen, setOpen] = useState(false);
   return (
     <header className="w-full border-b bg-gray-100">
