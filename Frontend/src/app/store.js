@@ -1,0 +1,14 @@
+import { configureStore } from "@reduxjs/toolkit";
+import rootRedcuer from "./rootRedcuer";
+import { authApi } from "@/features/api/authApi";
+
+
+export const appStore = configureStore({
+    reducer: rootRedcuer,
+    middleware:(defaultMiddleware) => defaultMiddleware().concat(authApi.middleware)
+});
+
+const initializeApp = async () => {
+    await appStore.dispatch(authApi.endpoints.registerUser.initiate({},{forceRefetch:true}))
+}
+initializeApp();

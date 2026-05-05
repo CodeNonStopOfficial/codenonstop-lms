@@ -10,18 +10,61 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogInIcon } from "lucide-react";
-import React from "react";
+import { useRegisterUserMutation } from "@/features/api/authApi";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "sonner";
 
 const SignupPage = () => {
-  const naviage = useNavigate();
-  const loading = false;
+  const navigate = useNavigate();
+  const [signupInput, setSignupInput] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [
+    registerUser,
+    {
+      data: registerData,
+      error: registerError,
+      isLoading: registerIsLoading,
+      isSuccess: registerIsSuccess,
+    },
+  ] = useRegisterUserMutation();
+
+  const changeInputHandler = (e) => {
+    const { name, value } = e.target;
+    setSignupInput({ ...signupInput, [name]: value });
+  };
+
+  const handleRegistration = async () => {
+    try {
+      await registerUser(signupInput).unwrap();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (registerIsSuccess) {
+      navigate("/auth/sign-in");
+    }
+  }, [navigate, registerIsSuccess]);
+
+  useEffect(() => {
+    if (registerIsSuccess && registerData) {
+      toast.success(registerData?.message || "Signup successful ✅.");
+    }
+    if (registerError) {
+      toast.error(registerError?.data?.message || "Signup Failed ⚠️");
+    }
+  }, [registerData, registerError, registerIsSuccess]);
+
   return (
     <section className="bg-gray-100">
       <div className=" absolute w-fit px-8 py-5 ">
         <Button
-          onClick={() => naviage("/")}
+          onClick={() => navigate("/")}
           className={buttonVariants({
             className: "w-fit px-8 py-4 hover:bg-blue-900",
           })}
@@ -37,8 +80,11 @@ const SignupPage = () => {
               Enter your details below to create your account
             </CardDescription>
             <CardAction>
-              <Link href="/auth/sign-in">
-                <Button onClick={() => naviage("/auth/sign-in")} variant="outline">
+              <Link to="/auth/sign-in">
+                <Button
+                  onClick={() => navigate("/auth/sign-in")}
+                  variant="outline"
+                >
                   Login
                 </Button>
               </Link>
@@ -46,7 +92,7 @@ const SignupPage = () => {
           </CardHeader>
 
           <CardContent>
-            <form>
+            <div>
               <div className="flex flex-col gap-5">
                 {/* Name */}
                 <div className="grid gap-2">
@@ -54,6 +100,9 @@ const SignupPage = () => {
                   <Input
                     id="name"
                     type="text"
+                    name="name"
+                    value={signupInput.name}
+                    onChange={changeInputHandler}
                     placeholder="Enter Your Name:"
                     required
                   />
@@ -65,6 +114,9 @@ const SignupPage = () => {
                   <Input
                     id="email"
                     type="email"
+                    name="email"
+                    value={signupInput.email}
+                    onChange={changeInputHandler}
                     placeholder="Ex@example.com"
                     required
                   />
@@ -76,16 +128,24 @@ const SignupPage = () => {
                   <Input
                     id="password"
                     type="password"
+                    name="password"
+                    value={signupInput.password}
+                    onChange={changeInputHandler}
                     required
                     placeholder="Password"
                   />
                 </div>
               </div>
 
-              <Button type="submit" className="w-full mt-6" disabled={loading}>
-                {loading ? "Creating..." : "Sign Up"}
+              <Button
+                disabled={registerIsLoading}
+                type="submit"
+                onClick={handleRegistration}
+                className="w-full mt-6"
+              >
+                {registerIsLoading ? "Creating..." : "Sign Up"}
               </Button>
-            </form>
+            </div>
           </CardContent>
 
           <CardFooter className="flex-col gap-3">

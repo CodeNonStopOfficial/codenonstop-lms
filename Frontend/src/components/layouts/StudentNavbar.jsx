@@ -7,7 +7,6 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import UserToggleMenu from "../common/UserToggleMenu";
 import { useState } from "react";
 import { Menu } from "lucide-react";
@@ -16,7 +15,7 @@ import { GraduationCap } from "lucide-react";
 import { ShieldPlus } from "lucide-react";
 import { ChartBarBig } from "lucide-react";
 import { Gift } from "lucide-react";
-import { User } from "lucide-react";
+import AvatarIcon from "../common/AvatarIcon";
 
 const StudentNavbar = () => {
   const navigate = useNavigate();
@@ -86,7 +85,7 @@ const StudentNavbar = () => {
           <div className="flex items-center justify-center gap-2">
             <Link
               to="referal"
-              className="hidden md:block border p-2 bg-white rounded-full"
+              className="hidden md:block border p-2 bg-white rounded-full cursor-pointer"
             >
               <img
                 src="https://static.uacdn.net/production/_next/static/images/giftHomePage.svg?q=75&auto=format%2Ccompress&w=48"
@@ -97,12 +96,9 @@ const StudentNavbar = () => {
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Avatar className="border border-blue-800">
-                      <AvatarImage src="https://github.com/shadcn.png" />
-                      <AvatarFallback>
-                         <User size={20} className="text-blue-800" />
-                      </AvatarFallback>
-                    </Avatar>
+                    <div className=" cursor-pointer">
+                       <AvatarIcon/>
+                    </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-55 mt-3">
                     {/* Profile Toggle meneu */}
