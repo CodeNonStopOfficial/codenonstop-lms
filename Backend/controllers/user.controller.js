@@ -3,6 +3,7 @@ import { User } from "../models/users.models.js";
 import { generateToken } from "../utils/generateToken.js";
 import useragent from "useragent";
 import geoip from "geoip-lite";
+import mongoose from "mongoose";
 
 export const registerUser = async (req, res) => {
   try {
@@ -95,16 +96,37 @@ export const loginUser = async (req, res) => {
   }
 };
 
-
 export const getUserProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id)
-      .select("-password")
-      .populate("enrolledCourses.course");
+    const userId = req.id;
+    if (!userId) {
+      return res.status(400).json({
+        message: "UserId Invalid ",
+        success: false,
+      });
+    }
+    const user = await User.findById(userId).select("-password");
+    // .populate("enrolledCourses.course");
 
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// ========================== LogOut Feature=================
+export const logout = async (_, res) => {
+  try {
+    return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+      message: "Logged out successfully.",
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to logout",
+    });
   }
 };
 
@@ -115,11 +137,9 @@ export const updateUserProfile = async (req, res) => {
   try {
     const updates = req.body;
 
-    const user = await User.findByIdAndUpdate(
-      req.user.id,
-      updates,
-      { new: true }
-    ).select("-password");
+    const user = await User.findByIdAndUpdate(req.user.id, updates, {
+      new: true,
+    }).select("-password");
 
     res.status(200).json({
       message: "Profile updated",

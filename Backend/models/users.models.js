@@ -75,7 +75,7 @@ const userSchema = new mongoose.Schema(
 
     earnings: {
       type: Number,
-      default: 0,
+      default: 100,
     },
 
     // 🔹 Subscription (for premium LMS)
@@ -143,6 +143,9 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    address : {
+      type:String
+    }
   },
   { timestamps: true },
 );
