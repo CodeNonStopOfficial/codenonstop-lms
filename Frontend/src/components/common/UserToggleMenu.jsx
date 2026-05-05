@@ -10,7 +10,7 @@ import { BadgeInfo } from 'lucide-react'
 import { Bell } from 'lucide-react'
 import { Link } from 'react-router'
 
-const UserToggleMenu = () => {
+const UserToggleMenu = ({logoutHandler }) => {
     const user = true;
     return (
         <div>
@@ -59,7 +59,7 @@ const UserToggleMenu = () => {
               )
             }
             <DropdownMenuSeparator />
-            <DropdownMenuItem variant='destructive'>
+            <DropdownMenuItem onClick={logoutHandler} variant='destructive'>
                 <LogOutIcon />
                 Log out
             </DropdownMenuItem>

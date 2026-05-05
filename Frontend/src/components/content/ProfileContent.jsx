@@ -13,14 +13,14 @@ import { MapPinHouseIcon } from "lucide-react";
 import EditProfilePage from "./EditProfilePage";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
-const ProfileContent = () => {
+const ProfileContent = ({ user }) => {
   return (
     <div className="">
       <div className="w-full border px-4 py-5 rounded-2xl gap-2">
         <div className="w-full flex md:gap-2 gap-1">
           <div className="w-fit space-y-2">
             <Avatar className="w-22 h-22 border-2 border-blue-800 bg-gray-100">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src={user?.photoUrl?.url} />
               <AvatarFallback>
                 <User size={53} className="text-blue-800" />
               </AvatarFallback>
@@ -38,13 +38,13 @@ const ProfileContent = () => {
                   </Link>
                 </PopoverTrigger>
                 <PopoverContent className="max-w-full ml-14">
-                  <EditProfilePage/>
+                  <EditProfilePage />
                 </PopoverContent>
               </Popover>
             </div>
           </div>
           <div>
-            <h1 className="font-bold text-2xl">Virendra kumar</h1>
+            <h1 className="font-bold text-2xl">{user?.name}</h1>
             <div className="font-semibold">
               <span>Portal Access</span>
               <div className="flex items-center gap-1 border rounded-full w-fit px-2 bg-linear-to-r from-blue-400 to-green-600">
@@ -53,7 +53,8 @@ const ProfileContent = () => {
               </div>
             </div>
             <h4 className="border-b border-black font-semibold">
-              Autheticated: Student
+              Autheticated:{" "}
+              {user?.role.charAt(0).toUpperCase() + user.role.slice(1)}
             </h4>
           </div>
         </div>
@@ -72,7 +73,7 @@ const ProfileContent = () => {
                   Full Name
                 </span>
                 <h1 className="text-md font-semibold text-black">
-                  Virendra Kumar
+                  {user?.name}
                 </h1>
               </div>
             </div>
@@ -83,7 +84,9 @@ const ProfileContent = () => {
                 <span className="text-muted-foreground font-semibold">
                   Username
                 </span>
-                <h1 className="text-md font-semibold text-black">Prajapati</h1>
+                <h1 className="text-md font-semibold text-black">
+                  {user.name.split(" ").slice(1).join(" ")}
+                </h1>
               </div>
             </div>
             {/* PHONE  */}
@@ -93,7 +96,7 @@ const ProfileContent = () => {
                 <span className="text-muted-foreground font-semibold">
                   Phone Number
                 </span>
-                <h1 className="text-md font-semibold text-black">7033532695</h1>
+                <h1 className="text-md font-semibold text-black">{user?.phone || "9999999999"}</h1>
               </div>
             </div>
             {/* ROLE  */}
@@ -103,7 +106,9 @@ const ProfileContent = () => {
                 <span className="text-muted-foreground font-semibold">
                   Role
                 </span>
-                <h1 className="text-md font-semibold text-black">Student</h1>
+                <h1 className="text-md font-semibold text-black">
+                  {user?.role.charAt(0).toUpperCase() + user?.role.slice(1)}
+                </h1>
               </div>
             </div>
           </div>
@@ -116,7 +121,7 @@ const ProfileContent = () => {
                   Email
                 </span>
                 <h1 className="text-md font-semibold text-black">
-                  Virendra848302@gamil.com
+                  {user?.email.charAt(0).toUpperCase() + user?.email.slice(1)}
                 </h1>
               </div>
             </div>
@@ -127,7 +132,9 @@ const ProfileContent = () => {
                   Address
                 </span>
                 <h1 className="text-md font-semibold text-black">
-                  Patna Bihar India
+                  {user?.address?.split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
                 </h1>
               </div>
             </div>

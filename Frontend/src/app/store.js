@@ -9,6 +9,6 @@ export const appStore = configureStore({
 });
 
 const initializeApp = async () => {
-    await appStore.dispatch(authApi.endpoints.registerUser.initiate({},{forceRefetch:true}))
+    await appStore.dispatch(authApi.endpoints.loadUser.initiate({},{forceRefetch:true}))
 }
 initializeApp();

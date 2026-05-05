@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router";
 import { Home } from "lucide-react";
@@ -16,12 +16,27 @@ import { ShieldPlus } from "lucide-react";
 import { ChartBarBig } from "lucide-react";
 import { Gift } from "lucide-react";
 import AvatarIcon from "../common/AvatarIcon";
+import { useSelector } from "react-redux";
+import { useLogoutUserMutation } from "@/features/api/authApi";
+import { toast } from "sonner";
 
 const StudentNavbar = () => {
+  const { user } = useSelector((store) => store.auth);
+  const [logoutUser, { data, isSuccess }] = useLogoutUserMutation();
+  const logoutHandler = async () => {
+    await logoutUser();
+  };
   const navigate = useNavigate();
   const logoImage = false;
-  const user = false;
+  // const user = false;
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(data?.message || "User log out.");
+      navigate("/auth/sign-in");
+    }
+  }, [data?.message, isSuccess, navigate]);
   return (
     <header className="w-full border-b bg-gray-100">
       <nav className="flex items-center justify-between px-4 md:px-8 py-4">
@@ -97,12 +112,12 @@ const StudentNavbar = () => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <div className=" cursor-pointer">
-                       <AvatarIcon/>
+                      <AvatarIcon />
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-55 mt-3">
                     {/* Profile Toggle meneu */}
-                    <UserToggleMenu />
+                    <UserToggleMenu logoutHandler={logoutHandler} />
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (

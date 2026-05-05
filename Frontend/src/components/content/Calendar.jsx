@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
 // Simple Calendar Component
-const Calendar = ({ enrolledDates = [] }) => {
+const Calendar = ({ enrolledDates = [] , user }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [autoDates, setAutoDates] = useState(enrolledDates);
 
@@ -57,7 +57,7 @@ const Calendar = ({ enrolledDates = [] }) => {
         key={d}
         className={`p-3 text-center rounded-lg cursor-pointer
         ${isEnrolled(d) ? "bg-green-500 text-white" : "bg-gray-100"}
-        ${isToday ? "border-2 border-blue-500" : ""}`}
+        ${isToday === user?.lastLogin.toLocaleString() ? "border-2 border-blue-500" : ""}`}
       >
         {d}
       </div>
