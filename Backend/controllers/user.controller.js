@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
 
     if (!name || !email || !password) {
       return res.status(400).json({
-        message: "Pleses Filed all Vlues",
+        message: "Pleses Filed all Vlues 👇",
         success: false,
       });
     }
@@ -86,7 +86,7 @@ export const loginUser = async (req, res) => {
       })
       .json({
         success: true,
-        message: "Login Successfully",
+        message: "Login Successfully ✅",
         user,
       });
   } catch (error) {
