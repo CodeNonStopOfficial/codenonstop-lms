@@ -3,6 +3,7 @@ import { User } from "../models/users.models.js";
 import { generateToken } from "../utils/generateToken.js";
 import useragent from "useragent";
 import geoip from "geoip-lite";
+import { deleteMediaFromCloudinary } from "../utils/cloudinary.js";
 
 export const registerUser = async (req, res) => {
   try {
@@ -133,16 +134,34 @@ export const logout = async (_, res) => {
    ✏️ Update Profile
 =========================== */
 export const updateUserProfile = async (req, res) => {
+  const userId = req.id;
   try {
-    const updates = req.body;
+    const { name, phone, address, bio } = req.body;
+    const profilePhoto = req.file;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+        success: false,
+      });
+    }
+    if (user.photoUrl) {
+      const publicId = user.photoUrl.split("/").pop().split(".")[0]; // extract public id
+      deleteMediaFromCloudinary(publicId);
+    }
+    // upload new photo
+    const cloudResponse = await uploadMedia(profilePhoto.path);
+    const photoUrl = cloudResponse.secure_url;
 
-    const user = await User.findByIdAndUpdate(req.user.id, updates, {
+    const updatedData = { name, phone, address, bio, photoUrl };
+    const updatedUser = await User.findByIdAndUpdate(userId, updatedData, {
       new: true,
     }).select("-password");
 
-    res.status(200).json({
-      message: "Profile updated",
-      user,
+    return res.status(200).json({
+      success: true,
+      user: updatedUser,
+      message: "Profile updated successfully.",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

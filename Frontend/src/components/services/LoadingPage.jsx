@@ -5,7 +5,7 @@ const LoadingPage = () => {
 
   useEffect(() => {
     let start;
-    const duration = 3000;
+    const duration = 1000;
 
     const animate = (time) => {
       if (!start) start = time;
@@ -30,7 +30,7 @@ const LoadingPage = () => {
         #dbeafe ${progress * 3.6}deg
       )`,
     }),
-    [progress]
+    [progress],
   );
 
   return (
@@ -58,7 +58,6 @@ const LoadingPage = () => {
           text-center
         "
       >
-
         {/* Progress Circle */}
         <div
           className="
@@ -77,7 +76,6 @@ const LoadingPage = () => {
           "
           style={circleStyle}
         >
-
           <div
             className="
               absolute
@@ -111,9 +109,7 @@ const LoadingPage = () => {
               Loading
             </span>
           </div>
-
         </div>
-
 
         {/* Heading */}
         <h1
@@ -128,7 +124,6 @@ const LoadingPage = () => {
           Welcome to CodeNonstop Learning Platform
         </h1>
 
-
         {/* Description */}
         <p
           className="
@@ -142,10 +137,8 @@ const LoadingPage = () => {
           Setting up courses, lessons and personalized learning experience
         </p>
 
-
         {/* Loading dots */}
         <div className="flex gap-2 mt-7">
-
           {[0, 1, 2].map((dot) => (
             <span
               key={dot}
@@ -161,9 +154,7 @@ const LoadingPage = () => {
               }}
             />
           ))}
-
         </div>
-
       </section>
     </main>
   );

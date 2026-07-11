@@ -17,14 +17,6 @@ const EditProfilePage = () => {
               required
             />
           </div>
-          <div className="flex flex-col space-y-1 px-2">
-            <Label>UserName:</Label>
-            <Input
-              type="text"
-              name="username"
-              placeholder="Enter Your Username:"
-            />
-          </div>
 
           <div className="flex flex-col space-y-1 px-2">
             <Label>Phone Number:</Label>
