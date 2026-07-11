@@ -22,6 +22,7 @@ import { toast } from "sonner";
 
 const StudentNavbar = () => {
   const { user } = useSelector((store) => store.auth);
+  console.log(user)
   const [logoutUser, { data, isSuccess }] = useLogoutUserMutation();
   const logoutHandler = async () => {
     await logoutUser();

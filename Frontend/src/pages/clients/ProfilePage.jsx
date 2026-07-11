@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 const ProfilePage = () => {
   const { data: userData, isLoading, isError, refetch } = useLoadUserQuery();
+
   useEffect(() => {
     if (userData) {
       toast.success("Profile Get Successfully ✅");
