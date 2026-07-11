@@ -3,7 +3,6 @@ import { User } from "../models/users.models.js";
 import { generateToken } from "../utils/generateToken.js";
 import useragent from "useragent";
 import geoip from "geoip-lite";
-import mongoose from "mongoose";
 
 export const registerUser = async (req, res) => {
   try {

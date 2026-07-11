@@ -54,7 +54,7 @@ const ProfileContent = ({ user }) => {
             </div>
             <h4 className="border-b border-black font-semibold">
               Autheticated:{" "}
-              {user?.role.charAt(0).toUpperCase() + user.role.slice(1)}
+              {user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1)}
             </h4>
           </div>
         </div>
@@ -85,7 +85,7 @@ const ProfileContent = ({ user }) => {
                   Username
                 </span>
                 <h1 className="text-md font-semibold text-black">
-                  {user.name.split(" ").slice(1).join(" ")}
+                  {user?.name?.split(" ").slice(1).join(" ")}
                 </h1>
               </div>
             </div>
@@ -107,7 +107,7 @@ const ProfileContent = ({ user }) => {
                   Role
                 </span>
                 <h1 className="text-md font-semibold text-black">
-                  {user?.role.charAt(0).toUpperCase() + user?.role.slice(1)}
+                  {user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1)}
                 </h1>
               </div>
             </div>

@@ -29,7 +29,6 @@ const StudentNavbar = () => {
   };
   const navigate = useNavigate();
   const logoImage = false;
-  // const user = false;
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
