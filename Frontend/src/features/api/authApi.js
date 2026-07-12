@@ -10,6 +10,7 @@ export const authApi = createApi({
         baseUrl:USER_API,
         credentials:'include'
     }),
+    tagTypes: ["User"],
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (inputData) => ({
@@ -41,12 +42,12 @@ export const authApi = createApi({
             async onQueryStarted(_, {queryFulfilled, dispatch}) {
                 try {
                     const result = await queryFulfilled;
-                    console.log(result)
                     dispatch(userLoggedIn({user : result.data}));
                 } catch (error) {
                     console.log(error);
                 }
-            }
+            },
+            providesTags: ["User"],
         }),
         logoutUser: builder.mutation({
             query: () => ({
@@ -61,6 +62,15 @@ export const authApi = createApi({
                 }
             }
         }),
+        updateUser : builder.mutation({
+             query : (formData)=>({
+                  url : "update/profile",
+                  method : "PUT",
+                  body : formData,
+                  credentials : "include"
+             }),
+            invalidatesTags: ["User"],
+        })
     
     })
 });
@@ -68,5 +78,6 @@ export const {
     useRegisterUserMutation,
     useLoginUserMutation,
     useLoadUserQuery,
-    useLogoutUserMutation
+    useLogoutUserMutation,
+    useUpdateUserMutation
 } = authApi;

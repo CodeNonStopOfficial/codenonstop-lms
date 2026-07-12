@@ -76,12 +76,12 @@ const router = createBrowserRouter([
        ]
   },
   {
-      path:"/",
+      path:"/auth",
       element : <AuthRootLayout/>,
       children:[
-         {path:"auth/sign-in", element : <LoginPage/>},
-         {path:"/auth/join-for-free", element : <LoginPage/>},
-         {path:"auth/sign-up", element : <SignupPage/>},
+         {path:"sign-in", element : <LoginPage/>},
+         {path:"join-for-free", element : <LoginPage/>},
+         {path:"sign-up", element : <SignupPage/>},
       ]
   },
   {

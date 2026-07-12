@@ -15,12 +15,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const ProfileContent = ({ user }) => {
   return (
-    <div className="">
+    <div>
       <div className="w-full border px-4 py-5 rounded-2xl gap-2">
         <div className="w-full flex md:gap-2 gap-1">
           <div className="w-fit space-y-2">
-            <Avatar className="w-22 h-22 border-2 border-blue-800 bg-gray-100">
-              <AvatarImage src={user?.photoUrl?.url} />
+            <Avatar className="w-26 h-26 border-2 border-blue-800 bg-gray-100">
+              <AvatarImage src={user?.photoUrl} />
               <AvatarFallback>
                 <User size={53} className="text-blue-800" />
               </AvatarFallback>
@@ -56,6 +56,9 @@ const ProfileContent = ({ user }) => {
               Autheticated:{" "}
               {user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1)}
             </h4>
+            <span>
+                {user?.bio}
+            </span>
           </div>
         </div>
       </div>

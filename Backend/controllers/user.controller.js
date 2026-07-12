@@ -3,7 +3,7 @@ import { User } from "../models/users.models.js";
 import { generateToken } from "../utils/generateToken.js";
 import useragent from "useragent";
 import geoip from "geoip-lite";
-import { deleteMediaFromCloudinary } from "../utils/cloudinary.js";
+import { deleteMediaFromCloudinary, uploadMedia } from "../utils/cloudinary.js";
 
 export const registerUser = async (req, res) => {
   try {
@@ -130,46 +130,69 @@ export const logout = async (_, res) => {
   }
 };
 
-/* ===========================
-   ✏️ Update Profile
-=========================== */
+
 export const updateUserProfile = async (req, res) => {
-  const userId = req.id;
   try {
+    const userId = req.id;
     const { name, phone, address, bio } = req.body;
     const profilePhoto = req.file;
+
     const user = await User.findById(userId);
+
     if (!user) {
       return res.status(404).json({
         message: "User not found",
         success: false,
       });
     }
-    if (user.photoUrl) {
-      const publicId = user.photoUrl.split("/").pop().split(".")[0]; // extract public id
-      deleteMediaFromCloudinary(publicId);
-    }
-    // upload new photo
-    const cloudResponse = await uploadMedia(profilePhoto.path);
-    const photoUrl = cloudResponse.secure_url;
 
-    const updatedData = { name, phone, address, bio, photoUrl };
-    const updatedUser = await User.findByIdAndUpdate(userId, updatedData, {
-      new: true,
-    }).select("-password");
+    let photoUrl = user.photoUrl;
+
+    // Only update photo if a new image is uploaded
+    if (profilePhoto) {
+      if (user.photoUrl) {
+        // const publicId = user.photoUrl.split("/").pop().split(".")[0];
+         const publicId = user.photoUrl.public_id;
+        await deleteMediaFromCloudinary(publicId);
+      }
+
+      const cloudResponse = await uploadMedia(profilePhoto.path);
+      photoUrl = cloudResponse.secure_url;
+    }
+
+    const updatedData = {
+      name,
+      phone,
+      address,
+      bio,
+      photoUrl,
+    };
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      updatedData,
+      {
+        new: true,
+      }
+    ).select("-password");
 
     return res.status(200).json({
       success: true,
       user: updatedUser,
       message: "Profile updated successfully.",
     });
+
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
 /* ===========================
-   🔒 Change Password
+    Change Password
 =========================== */
 export const changePassword = async (req, res) => {
   try {
@@ -192,7 +215,7 @@ export const changePassword = async (req, res) => {
 };
 
 /* ===========================
-   🔁 Forgot Password
+    Forgot Password
 =========================== */
 export const forgotPassword = async (req, res) => {
   try {
@@ -220,7 +243,7 @@ export const forgotPassword = async (req, res) => {
 };
 
 /* ===========================
-   🔁 Reset Password
+    Reset Password
 =========================== */
 export const resetPassword = async (req, res) => {
   try {
@@ -248,7 +271,7 @@ export const resetPassword = async (req, res) => {
 };
 
 /* ===========================
-   🚫 Block / Unblock User (Admin)
+    Block / Unblock User (Admin)
 =========================== */
 export const toggleBlockUser = async (req, res) => {
   try {

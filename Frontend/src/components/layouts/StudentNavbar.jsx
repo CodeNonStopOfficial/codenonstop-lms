@@ -22,7 +22,6 @@ import { toast } from "sonner";
 
 const StudentNavbar = () => {
   const { user } = useSelector((store) => store.auth);
-  console.log(user)
   const [logoutUser, { data, isSuccess }] = useLogoutUserMutation();
   const logoutHandler = async () => {
     await logoutUser();
@@ -112,12 +111,12 @@ const StudentNavbar = () => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <div className=" cursor-pointer">
-                      <AvatarIcon />
+                      <AvatarIcon user = {user} />
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-55 mt-3">
                     {/* Profile Toggle meneu */}
-                    <UserToggleMenu logoutHandler={logoutHandler} />
+                    <UserToggleMenu user={user} logoutHandler={logoutHandler} />
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (

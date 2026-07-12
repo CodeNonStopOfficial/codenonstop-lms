@@ -2,10 +2,10 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { User } from "lucide-react";
 
-const AvatarIcon = () => {
+const AvatarIcon = ({user}) => {
   return (
     <Avatar className="border border-blue-800">
-      <AvatarImage src="https://github.com/shadcn.png" />
+      <AvatarImage src={user?.photoUrl} />
       <AvatarFallback>
         <User size={20} className="text-blue-800" />
       </AvatarFallback>
