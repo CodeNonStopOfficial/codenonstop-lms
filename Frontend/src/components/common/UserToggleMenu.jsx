@@ -53,7 +53,7 @@ const UserToggleMenu = ({ user, logoutHandler }) => {
         </Link>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-      {user.role === "admin" && user.role === "instructor" (
+      {(user?.role === "admin" || user?.role === "instructor") && (
         <>
           <Link to="/get-started/admin/dashboard">
             <DropdownMenuItem>
